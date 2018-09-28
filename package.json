@@ -1,0 +1,9 @@
+{
+  "name": "Nexmo Microsoft Translator Node Examples",
+  "description": "Sample code using Microsoft Translator and Nexmo APIs",
+  "author": "Kelly J Andrews",
+  "license": "MIT",
+  "dependencies": {
+    "nexmo": "^2.4.0"
+  }
+}
