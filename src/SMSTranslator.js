@@ -15,8 +15,6 @@ class SMSTranslator {
 
     sendSms({to, from, translateToLang, text}, callback) {
 
-        console.log('translateToLang', translateToLang)
-
         let options = {
             headers: {
                 'Content-Type': 'application/json',
