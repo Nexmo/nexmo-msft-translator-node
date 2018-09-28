@@ -1,8 +1,8 @@
 require('dotenv').load();
 
-const SMSTranlator = require('../src/SMSTranslator')
+const MessagingTranslator = require('../src/MessagingTranslator')
 
-const translator = new SMSTranlator({
+const translator = new MessagingTranslator({
     nexmoApiKey: process.env.NEXMO_API_KEY,
     nexmoApiSecret: process.env.NEXMO_API_SECRET,
     nexmoApplicationId: process.env.NEXMO_APPLICATION_ID,

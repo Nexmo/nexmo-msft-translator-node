@@ -1,7 +1,7 @@
 const Nexmo = require('nexmo')
 const request = require('Request')
 
-class SMSTranslator {
+class MessagingTranslator {
     constructor({nexmoApiKey, nexmoApiSecret, nexmoApplicationId, nexmoPrivateKey, msftApiKey, debug = false}) {
         this.msftApiKey = msftApiKey
 
@@ -71,4 +71,4 @@ class SMSTranslator {
     }
 }
 
-module.exports = SMSTranslator
+module.exports = MessagingTranslator
