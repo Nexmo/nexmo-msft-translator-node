@@ -2,18 +2,22 @@ const Nexmo = require('nexmo')
 const request = require('Request')
 
 class SMSTranslator {
-    constructor({nexmoApiKey, nexmoApiSecret, msftApiKey, debug = false}) {
-        this.nexmoApiKey = nexmoApiKey
-        this.nexmoApiSecret = nexmoApiSecret
+    constructor({nexmoApiKey, nexmoApiSecret, nexmoApplicationId, nexmoPrivateKey, msftApiKey, debug = false}) {
         this.msftApiKey = msftApiKey
 
         this.nexmo = new Nexmo({
-            apiKey: this.nexmoApiKey,
-            apiSecret: this.nexmoApiSecret
+            apiKey: nexmoApiKey,
+            apiSecret: nexmoApiSecret,
+            applicationId: nexmoApplicationId,
+            privateKey: nexmoPrivateKey
         }, {debug: debug})
     }
 
     sendSms({to, from, translateToLang, text}, callback) {
+        this.send({toId: to, fromId: from, translateToLang: translateToLang, channel: 'sms', text: text}, callback)
+    }
+
+    send({toId, fromId, channel = 'sms', translateToLang, text}, callback) {
 
         let options = {
             headers: {
@@ -32,7 +36,37 @@ class SMSTranslator {
             // full response [{"detectedLanguage":{"language":"en","score":1.0},"translations":[{"text":"Un mensaje de texto enviado mediante la API de SMS de Nexmo","to":"es"}]}]
             let translatedText = JSON.parse(body)[0].translations[0].text
         
-            this.nexmo.message.sendSms(from, to, translatedText, callback)
+            const toIdParamNameLookup = {
+                sms: 'number',
+                messenger: 'id',
+                whatsapp: 'number',
+                viber: 'id'
+            }
+    
+            const fromIdParamNameLookup = {
+                sms: 'number',
+                messenger: 'id',
+                whatsapp: 'number',
+                viber: 'number'
+            }
+    
+            const from = { "type": channel }
+            from[ fromIdParamNameLookup[channel] ] = fromId
+    
+            const to = { "type": channel }
+            to[ toIdParamNameLookup[channel] ] = toId
+    
+            this.nexmo.channel.send(
+                to,
+                from,
+                {
+                  "content": {
+                    "type": "text",
+                    "text": translatedText
+                  }
+                },
+                callback
+              );
         })
     }
 }
