@@ -14,7 +14,7 @@ let options = {
     body: JSON.stringify([{ 'Text': 'An example message sent from the Nexmo API' }])
 }
 
-// Change to any language code to translate in different language. Currently set to Soanish (es)
+// Change to any language code to translate in different language. Currently set to Spanish (es)
 let lang = '&to=es';
 
 request.post(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0${lang}`, options, (err, res, body) => {
