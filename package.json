@@ -1,5 +1,5 @@
 {
-  "name": "Nexmo Microsoft Translator Node Examples",
+  "name": "nexmo-msft-translator-node",
   "description": "Sample code using Microsoft Translator and Nexmo APIs",
   "author": "Kelly J Andrews",
   "license": "MIT",
