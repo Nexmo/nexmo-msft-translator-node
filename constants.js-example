@@ -1,0 +1,23 @@
+// Nexmo Keys
+const NEXMO_API_KEY = '';
+const NEXMO_API_SECRET = '';
+const NEXMO_APPLICATION_ID = '';
+const NEXMO_PRIVATE_KEY = '';
+
+// MSFT Keys
+const MSFT_API_KEY = '';
+
+
+// Message Details
+const FROM_NUMBER = '';
+const TO_NUMBER = '';
+
+module.exports = {
+    NEXMO_API_KEY: NEXMO_API_KEY,
+    NEXMO_API_SECRET: NEXMO_API_SECRET,
+    NEXMO_APPLICATION_ID: NEXMO_APPLICATION_ID,
+    NEXMO_PRIVATE_KEY: NEXMO_PRIVATE_KEY,
+    MSFT_API_KEY: MSFT_API_KEY,
+    FROM_NUMBER: FROM_NUMBER,
+    TO_NUMBER: TO_NUMBER
+}
