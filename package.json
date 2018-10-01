@@ -1,9 +1,13 @@
 {
-  "name": "Nexmo Microsoft Translator Node Examples",
+  "name": "msft-translator-examples",
   "description": "Sample code using Microsoft Translator and Nexmo APIs",
   "author": "Kelly J Andrews",
   "license": "MIT",
   "dependencies": {
-    "nexmo": "^2.4.0"
+    "nexmo": "^2.3.1-beta-1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.0.0"
   }
 }
